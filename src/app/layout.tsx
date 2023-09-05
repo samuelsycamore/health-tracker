@@ -1,22 +1,20 @@
+"use client";
+
 import './globals.scss'
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-
-const inter = Inter({ subsets: ['latin'] })
-
-export const metadata: Metadata = {
-  title: 'Health Tracker',
-  description: 'Learning Next.js App Dir with Supabase',
-}
+import React, { useState } from 'react'
 
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+  const [isDark, setIsDark] = useState(false);
+    const switchTheme: any = () => {
+      setIsDark(!isDark);
+    };
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body>{children}</body>
     </html>
   )
 }
